@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const DB_CONECTION = "mongodb+srv://mauriciogaraco:@CRACKWTF1@cluster0.01uqdzf.mongodb.net/support"
+const PORT =4000;
 
 const dbConnetion =  async() => {
 try {
@@ -15,5 +15,6 @@ try {
 }
 
 module.exports = {
-    dbConnetion
+    dbConnetion,
+    PORT
 }

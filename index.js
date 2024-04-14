@@ -6,7 +6,8 @@ const questionRouter = require('./src/routes/questionRouter');
 const authRouter = require('./src/routes/authRouter');
 const cors = require('cors');
 
-const {dbConnetion} = require('./dataBase/config')
+const {dbConnetion, PORT} = require('./dataBase/config')
+
 
 
 
@@ -15,14 +16,15 @@ const app = express();
 
 //base de datos 
 dbConnetion();
+app.use(cors());
 
 app.use(express.json());
-//app.use(cors());
-const port =  4000;
+
+const port = PORT || 4000;
 
 
 app.listen(port,()=>{
-    console.log(`Servidor corriendo en puerto ${process.env.PORT}`)
+    console.log(`Servidor corriendo en puerto ${port}`)
 });
 
 
@@ -30,4 +32,5 @@ app.listen(port,()=>{
 app.use('/', userRoutes);
 app.use('/', questionRouter);
 app.use('/', authRouter);
+
 
