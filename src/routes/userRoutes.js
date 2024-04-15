@@ -6,7 +6,8 @@ const { validateField } = require('../../middlewares/validateFields');
 const { validateJWT } = require('../../middlewares/validate-jtw');
 const { isUserById } = require('../../helpers/validator');
 
-const {validationResult} = require('express-validator')
+const {validationResult} = require('express-validator');
+const { isAdminRole } = require('../../middlewares/validate-role');
 
 router.get('/user',getTask);
 
@@ -37,7 +38,8 @@ router.put('/user/:id',[
 
 // delete user
 router.delete('/user/:id',[
-    //validateJWT,
+    validateJWT,
+    isAdminRole,
     check('id', 'The id is not valid').isMongoId(),
    // check('id').custom(isUserById),
    

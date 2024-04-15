@@ -127,9 +127,11 @@ const deleteUser = async(req,resp = express.response)=>{
   
     const user = await User.findByIdAndUpdate(id,{state: false})
     
+
     resp.json({
         msg: 'User has been delete',
-        user
+        user,
+      
     })
 }
 module.exports = {

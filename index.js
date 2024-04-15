@@ -3,7 +3,7 @@ const express = require("express");
 const userRoutes = require('./src/routes/userRoutes');
 
 const questionRouter = require('./src/routes/questionRouter');
-const authRouter = require('./src/routes/authRouter');
+const ticketsRouter = require('./src/routes/ticketsRouter');
 const cors = require('cors');
 
 const {dbConnetion, PORT} = require('./dataBase/config')
@@ -31,6 +31,6 @@ app.listen(port,()=>{
 
 app.use('/', userRoutes);
 app.use('/', questionRouter);
-app.use('/', authRouter);
+app.use('/', ticketsRouter);
 
 
